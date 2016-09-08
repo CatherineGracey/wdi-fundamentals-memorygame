@@ -1,8 +1,5 @@
 var cards = ["jack", "ace", "queen", "king", "ace", "king", "queen", "jack"];
-
 var cardsInPlay = [];
-
-var board = document.getElementById("game-board");
 
 function isTwoCards(){
   // add card to array of cards in play
@@ -44,7 +41,10 @@ function isMatch(){
 }
 
 function isGameOver(){
-
+  var unfound = document.getElementsByClassName("card");
+  if (unfound.length === 0){
+    createBoard();
+  }
 }
 
 function shuffleCards(){
@@ -59,6 +59,8 @@ function shuffleCards(){
 
 function createBoard(){
   shuffleCards();
+  var board = document.getElementById("game-board");
+  board.innerHTML = "";
   for (var i = 0; i < cards.length; i++){
     var newCard = document.createElement("div");
     newCard.className = "card";
