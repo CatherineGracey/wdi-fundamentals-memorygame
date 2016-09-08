@@ -39,7 +39,18 @@ function isMatch(){
   }
 }
 
+function shuffleCards(){
+  var holding = [];
+  while (cards.length > 0){
+    var i = Math.floor(Math.random() * cards.length);
+    var card = cards.splice(i, 1);
+    holding.push(card[0]);
+  }
+  cards = holding;
+}
+
 function createBoard(){
+  shuffleCards();
   for (var i = 0; i < cards.length; i++){
     var newCard = document.createElement("div");
     newCard.className = "card";
