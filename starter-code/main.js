@@ -32,7 +32,7 @@ function isMatch(){
     cardsInPlay[1].removeEventListener("click", isTwoCards);
     isGameOver();
   } else {
-    result.innerHTML = "Sorry, try again.";
+    result.innerHTML = "Sorry, " + cardsInPlay[0].getAttribute('data-card') + " and " + cardsInPlay[1].getAttribute('data-card') + " don't match. Try again.";
     cardsInPlay[0].innerHTML = "";
     cardsInPlay[1].innerHTML = "";
     cardsInPlay[0].className = "card";
@@ -41,6 +41,8 @@ function isMatch(){
 }
 
 function isGameOver(){
+  //When cards are found they have a class of "card-shown".
+  //Game is over when no cards still have the class "card".
   var unfound = document.getElementsByClassName("card");
   if (unfound.length === 0){
     createBoard();
@@ -60,7 +62,9 @@ function shuffleCards(){
 function createBoard(){
   shuffleCards();
   var board = document.getElementById("game-board");
+  //Clear any previous game from the board.
   board.innerHTML = "";
+  //Add new cards to the board.
   for (var i = 0; i < cards.length; i++){
     var newCard = document.createElement("div");
     newCard.className = "card";
