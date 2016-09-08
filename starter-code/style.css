@@ -44,6 +44,10 @@ h2 {
   border: solid black 1px;
   background: yellow;
 }
+img {
+  height: 100%;
+  width: 100%;
+}
 .name {
   color: #ff0000;
 }
