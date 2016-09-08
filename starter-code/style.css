@@ -29,17 +29,18 @@ h2 {
   color: #ffd700;
 }
 #game-board{
-  height: 50%;
-  width: 50%;
+  min-height: 52vw;
+  width: 81vw;
+  margin: 5vw auto;
 }
 .card {
-  height: 200px;
-  width: 150px;
+  height: 24vw;
+  width: 18vw;
   border: solid black 1px;
   background: yellow;
   border-radius: 10px;
   display: inline-block;
-  margin: 8%;
+  margin: 1vw;
 }
 .name {
   color: #ff0000;

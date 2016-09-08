@@ -1,4 +1,4 @@
-var cards = ["jack", "queen", "king", "king", "queen", "jack"];
+var cards = ["jack", "ace", "queen", "king", "ace", "king", "queen", "jack"];
 
 var cardsInPlay = [];
 
