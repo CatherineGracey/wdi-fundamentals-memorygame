@@ -11,6 +11,7 @@ function isTwoCards(){
   var card = this.getAttribute('data-card');
   cardsInPlay.push(this);
   this.innerHTML = '<img src="' + card + '.svg" alt="' + card + '" />';
+  this.className = "card-shown";
 
   // if you have two cards in play check for a match
   if (cardsInPlay.length === 2) {
@@ -37,6 +38,8 @@ function isMatch(){
     result.innerHTML = "Sorry, try again.";
     cardsInPlay[0].innerHTML = "";
     cardsInPlay[1].innerHTML = "";
+    cardsInPlay[0].className = "card";
+    cardsInPlay[1].className = "card";
   }
 }
 

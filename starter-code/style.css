@@ -33,14 +33,16 @@ h2 {
   width: 81vw;
   margin: 5vw auto;
 }
-.card {
+.card, .card-shown {
   height: 24vw;
   width: 18vw;
-  border: solid black 1px;
-  background: yellow;
-  border-radius: 10px;
+  border-radius: 15px;
   display: inline-block;
   margin: 1vw;
+}
+.card {
+  border: solid black 1px;
+  background: yellow;
 }
 .name {
   color: #ff0000;
