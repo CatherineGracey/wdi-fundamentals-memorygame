@@ -9,7 +9,7 @@ function isTwoCards(){
   // 'this' hasn't been covered in this prework, but
   // for now, just know it gives you access to the card the user clicked on
   var card = this.getAttribute('data-card');
-  cardsInPlay.push(card);
+  cardsInPlay.push(this);
   this.innerHTML = '<img src="' + card + '.svg" alt="' + card + '" />';
 
   // if you have two cards in play check for a match
@@ -28,15 +28,20 @@ function isTwoCards(){
 
 function isMatch(){
   var result = document.getElementById("result");
-  if (cardsInPlay[0] === cardsInPlay[1]){
+  if (cardsInPlay[0].getAttribute('data-card') === cardsInPlay[1].getAttribute('data-card')){
     result.innerHTML = "You found a match!";
+    cardsInPlay[0].removeEventListener("click", isTwoCards);
+    cardsInPlay[1].removeEventListener("click", isTwoCards);
+    isGameOver();
   } else {
     result.innerHTML = "Sorry, try again.";
+    cardsInPlay[0].innerHTML = "";
+    cardsInPlay[1].innerHTML = "";
   }
-  var cardDivs = document.getElementsByClassName("card");
-  for (var i = 0; i < cardDivs.length; i++){
-    cardDivs[i].innerHTML = "";
-  }
+}
+
+function isGameOver(){
+
 }
 
 function shuffleCards(){
@@ -55,7 +60,7 @@ function createBoard(){
     var newCard = document.createElement("div");
     newCard.className = "card";
     newCard.setAttribute("data-card", cards[i]);
-    newCard.addEventListener('click', isTwoCards);
+    newCard.addEventListener("click", isTwoCards);
     board.appendChild(newCard);
   }
 }
