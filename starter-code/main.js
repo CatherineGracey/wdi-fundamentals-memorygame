@@ -21,14 +21,17 @@ function isTwoCards(){
     // clear cards in play array for next try
     cardsInPlay = [];
 
+  } else {
+    document.getElementById("result").innerHTML = "";
   }
 }
 
 function isMatch(){
+  var result = document.getElementById("result");
   if (cardsInPlay[0] === cardsInPlay[1]){
-    alert("You found a match!");
+    result.innerHTML = "You found a match!";
   } else {
-    alert("Sorry, try again.");
+    result.innerHTML = "Sorry, try again.";
   }
   var cardDivs = document.getElementsByClassName("card");
   for (var i = 0; i < cardDivs.length; i++){
